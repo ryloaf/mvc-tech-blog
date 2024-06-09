@@ -10,8 +10,22 @@
 {{/each}} --}}
 
 {{#each homePost as |post|}}
-<a href="/post/"{{id}}>
-    <header>{{title}}</header>
+  <a href="/post/" {{id}}>
+    <h3>{{title}}</h3>
+    <strong>{{user.name}}</strong>
+    <p>{{content}}</p>
     <p>{{date_created}}</p>
-</a>
+  </a>
 {{/each}}
+
+<button id="add-btn">add post</button>
+
+<form id="input-wrapper">
+  <input type="text" id="title" value="Title" /><br /><br />
+  <textarea id="new-post" name="post">
+    post here
+  </textarea>
+  <input id="submit-post" type="submit" value="Submit" />
+</form>
+
+<script src="./js/handlePost.js"></script>
