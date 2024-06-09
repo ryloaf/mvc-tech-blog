@@ -1,21 +1,26 @@
-const { Comments } = require('../models');
+// import Comments model
+const { Comments } = require("../models");
 
+// data for seeding Comments table
 const data = [
-    {
-        content: "Wow you made a comment",
-        date_created: "2024-04-04",
-        created_by: 1,
-        post_id: 1,
-    },
-    {
-        content: "Yippee",
-        date_created: "2024-04-06",
-        created_by: 1,
-        post_id: 1,
-    },
-    
+  {
+    content: "Do you know about Sonic the Hedgehog?",
+    user_id: 1,
+    post_id: 1,
+  },
+  {
+    content: "Yippeeee!!!",
+    user_id: 1,
+    post_id: 1,
+  },
+  {
+    content: "Dang that's crazy...",
+    user_id: 2,
+    post_id: 2,
+  },
 ];
 
+// function to seed the Comments table with the provided data
 const seed = () => Comments.bulkCreate(data);
 
 module.exports = seed;

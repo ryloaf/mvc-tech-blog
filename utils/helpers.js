@@ -1,9 +1,17 @@
 module.exports = {
-    format_time: (date) => {
-      return date.toLocaleTimeString();
-    },
-    format_date: (date) => {
-      return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()
-        }`;
-    },
-  };
+  // method to generate a random emoji representing a book
+  get_emoji: () => {
+    const randomNum = Math.random();
+    let book = "📗";
+
+    // determine the emoji based on random number
+    if (randomNum > 0.7) {
+      book = "📘";
+    } else if (randomNum > 0.4) {
+      book = "📙";
+    }
+
+    // return the emoji wrapped in a span element with ARIA attributes
+    return `<span for="img" aria-label="book">${book}</span>`;
+  },
+};
