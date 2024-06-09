@@ -18,12 +18,13 @@ Comments.init(
         date_created: {
             type: DataTypes.DATE,
             allowNull: false,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
         },
         created_by: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Users',
+                model: 'user',
                 key: 'id'
             },
         },

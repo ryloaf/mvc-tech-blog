@@ -3,7 +3,6 @@ const sequelize = require('../config/connection');
 
 class Post extends Model {}
 
-
 Post.init(
     {
         id: {
@@ -23,12 +22,13 @@ Post.init(
         date_created: {
             type: DataTypes.DATE,
             allowNull: false,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         },
-        created_by: {
+        user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Users',
+                model: 'User',
                 key: 'id'
             },
         },
