@@ -1,5 +1,5 @@
 // import model, datatypes and Sequlize connection
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, DATEONLY } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Comments extends Model {}
