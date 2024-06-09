@@ -27,6 +27,6 @@ This project is a CMS-style blog site where users can view, create, edit, and de
 
   ## Credits & Links
 
-  © 2024 [Rylee Jolley](https://github.com/ryloaf)
-  [GitHub Repo](https://github.com/ryloaf/mvc-tech-blog)
-  [Deployed App](https://mvc-tech-blo-main-zv6lgtnscvni.herokuapp.com/)
+  - © 2024 [Rylee Jolley](https://github.com/ryloaf)
+  - [GitHub Repo](https://github.com/ryloaf/mvc-tech-blog)
+  - [Deployed App](https://mvc-tech-blo-main-zv6lgtnscvni.herokuapp.com/)
