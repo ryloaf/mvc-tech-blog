@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,7 +11,7 @@
 
 <body>
   <header>
-    <h1>MVC Tech Blog</h1>
+
   </header>
   <nav>
     <a href="/login">Log in</a>
@@ -38,89 +38,51 @@
 
 </body>
 
-</html>
+</html> --}}
 
 
-{{!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MVC Tech Blog</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" 
+        crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/css/style.css"/>
 </head>
 
-<body>
-    <section class="hero is-fullheight-with-navbar block">
-        {{#if loggedIn}}
-        <div class="hero-head">
-            <div class="hero is-fullwidth has-background is-danger">
-                <nav class="navbar">
-                    <div class="container">
-                        <div class="navbar-title is-size-3 has-text-weight-bold">
-                            <a class="navbar-item">MVC Tech Blog</a>
-</div>
-              </div>
-              <div class="navbar-menu">
-                <div class="navbar-end">
-                  <a href="/" class="navbar-item is-active has-text-weight-medium">Home</a>
-                </div>
-              </div>
-              <div class="navbar-end">
-                <div class="navbar-item">
-                  <div class="buttons">
-                    <a href="/logout" class="button is-link">
-                      <strong>Logout</strong>
-                    </a>
-                  </div>
-                </div>
-              </div>
+<body class="flex-column min-100-vh">
+    <nav class="navbar custom-navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <div>
+                <a class="nav-item nav-link"><i class="bi bi-house"></i>Home</a>                
+                <a class="nav-item nav-link" href="/dashboard"><i class="bi bi-card-list"></i>Dashboard</a>       
+                {{#if loggedIn}}             
+                    <a class="nav-item nav-link" href="/login" id="logout"><i class="bi bi-box-arrow-right"></i>Logout</a>
+                {{else}}
+                    <a class="nav-item nav-link" href="/login"><i></i>Login</a>
+                {{/if}}
             </div>
-          </nav>
         </div>
-      </div>
-    {{else}}
-      <div class="hero-head">
-        <div class="hero is-fullwidth has-background is-link">
-          <nav class="navbar">
-            <div class="container">
-              <div class="navbar-title is-size-2 has-text-weight-bold">
-                <a class="navbar-item">MVC Tech Blog</a>
-      </div>
-              </div>
-              <div class="navbar-menu">
-                <div class="navbar-end">
-                  <a href="/" class="navbar-item is-active has-text-weight-medium">Home</a>
-                </div>
-              </div>
-              <div class="navbar-end">
-                <div class="navbar-item">
-                  <div class="buttons">
-                    <a href="/login" class="button is-danger">
-                      <strong>Login</strong>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    {{/if}}
+    </nav>
 
-    <main>
-      <div class="post">
+    <header class="text-center">        
+            <div class="container d-flex align-items-center flex-column">
+                {{!-- <h1 id="header">MVC Tech Blog</h1> --}}
+            </div>        
+    </header>
+
+    <main class="col-auto">
         {{{body}}}
-      </div>
     </main>
-
-  </section>
-
- {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-
 </body>
+</html>
 
-</html> --}}
+<script src="/js/logout.js"></script>
