@@ -1,8 +1,10 @@
+// import model, datatypes and Sequlize connection
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Comments extends Model {}
 
+// initialize the Comments model with its attributes
 Comments.init(
     {
         id: {
@@ -20,7 +22,7 @@ Comments.init(
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
         },
-        created_by: {
+        user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
@@ -32,11 +34,13 @@ Comments.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Post',
+                model: 'post',
                 key: 'id'
             }
         }
     },
+
+    // pass the Sequelize instance
     {
         sequelize,
         freezeTableName: true,

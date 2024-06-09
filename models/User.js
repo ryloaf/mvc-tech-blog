@@ -1,13 +1,16 @@
+// import model, datatypes, bycrypt library and Sequelize connection
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
+// define the User model by extending Sequelize's Model class
 class User extends Model {
     checkPassword(loginPw) {
-        return byrypt.compareSync(loginPw, this.password);
+        return bcrypt.compareSync(loginPw, this.password);
     }
 }
 
+// initialize the User model with its attributes and options
 User.init(
     {
         id: {
@@ -24,16 +27,28 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-              len: [10],
+              notEmpty: true,
+              len: {
+                args: [5, 20],
+                msg: 'Password must be between 5 and 20 characters!'
+              },
             },
           },
-    },
+        },
     {
+
+      // define hooks to hash the password before creating or updating a user
         hooks: {
           beforeCreate: async (newUserData) => {
             newUserData.password = await bcrypt.hash(newUserData.password, 10);
             return newUserData;
           },
+          beforeUpdate: async (updatedUserData) => {
+            updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+            return updatedUserData;
+          },
+
+        // pass the Sequelize instance
         },
         sequelize,
         timestamps: false,

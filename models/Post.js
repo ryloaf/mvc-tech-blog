@@ -1,8 +1,10 @@
+// import models, datatypes and Sequelize connection
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Post extends Model {}
 
+// initialize the Post model with its attributes and options
 Post.init(
     {
         id: {
@@ -28,11 +30,12 @@ Post.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'User',
+                model: 'user',
                 key: 'id'
             },
         },
     },
+     // pass the Sequelize instance
     {
         sequelize,
         freezeTableName: true,
