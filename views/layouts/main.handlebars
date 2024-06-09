@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
     <section class="hero is-fullheight-with-navbar block">
-        {{#if logged_in}}
+        {{#if loggedIn}}
         <div class="hero-head">
-            <div class="hero is-fullwidth has-background is-success">
+            <div class="hero is-fullwidth has-background is-danger">
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-title is-size-3 has-text-weight-bold">
@@ -21,13 +22,12 @@
               <div class="navbar-menu">
                 <div class="navbar-end">
                   <a href="/" class="navbar-item is-active has-text-weight-medium">Home</a>
-                  <a href="/dashboard" class="navbar-item is-active has-text-weight-medium">Dashboard</a>
                 </div>
               </div>
               <div class="navbar-end">
                 <div class="navbar-item">
                   <div class="buttons">
-                    <a href="/logout" class="button is-info">
+                    <a href="/logout" class="button is-link">
                       <strong>Logout</strong>
                     </a>
                   </div>
@@ -49,13 +49,12 @@
               <div class="navbar-menu">
                 <div class="navbar-end">
                   <a href="/" class="navbar-item is-active has-text-weight-medium">Home</a>
-                  <a href="/dashboard" class="navbar-item is-active has-text-weight-medium">Dashboard</a>
                 </div>
               </div>
               <div class="navbar-end">
                 <div class="navbar-item">
                   <div class="buttons">
-                    <a href="/login" class="button is-info">
+                    <a href="/login" class="button is-danger">
                       <strong>Login</strong>
                     </a>
                   </div>

@@ -1,42 +1,22 @@
-<h1>Dashboard</h1>
-<section id="#existingblogs">
-    {{#each blogs}}
-</section>
-<div class="box">
-  <article class="media">
-    <div class="media-left">
-      <figure class="image is-64x64">
-        <img src="https://bulma.io/assets/images/placeholders/128x128.png" alt="Image" />
-      </figure>
-    </div>
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <strong>Rylee</strong> <small>@ryleej</small>
-          <small>31m</small>
-          <br />
+<h2>Your Posts</h2>
 
-        </p>
-      </div>
-      <nav class="level is-mobile">
-        <div class="level-left">
-          <a class="level-item" aria-label="reply">
-            <span class="icon is-small">
-              <i class="fas fa-reply" aria-hidden="true"></i>
-            </span>
-          </a>
-          <a class="level-item" aria-label="retweet">
-            <span class="icon is-small">
-              <i class="fas fa-retweet" aria-hidden="true"></i>
-            </span>
-          </a>
-          <a class="level-item" aria-label="like">
-            <span class="icon is-small">
-              <i class="fas fa-heart" aria-hidden="true"></i>
-            </span>
-          </a>
-        </div>
-      </nav>
-    </div>
-  </article>
-</div>
+<section>
+{{#if posts.length}}
+    {{#each posts as |post|}}
+        <h3>{{title}}</h3>
+        <strong>{{user.name}}</strong>
+        <p>{{content}}</p>
+        <p>{{date_created}}</p>
+    {{/each}}
+{{/if}}
+</section>
+
+<form id="input-wrapper">
+    <input type="text" id="title" value="Title"><br><br>
+    <textarea id="new-post" name="post">
+        Post Here
+    </textarea>
+    <input id="submit-post" type="submit" value="Submit">
+</form>
+
+<script src="./js/handlePost.js"></script>

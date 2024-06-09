@@ -24,6 +24,19 @@ router.get('/', async (req, res) => {
     }
 });
 
+// router.get('/signup', (req, res) => {
+//     res.render('signup');
+// });
+
+// router.post('/signup', async (req, res) => {
+//     try {
+//         const newUser = await User.create(req.body);
+//         res.redirect('/login');
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
+
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
       res.redirect('/');
@@ -32,36 +45,6 @@ router.get('/login', (req, res) => {
   
     res.render('login');
   });
-
-// router.get('/users', async (req, res) => {
-    // if (req.session.loggedIn) {
-    //     res.redirect('/login');
-    //     return;
-    // }
-    // res.render('users');
-//     try {
-//         const users = await Users.findAll();
-//         res.json(users);
-//     } catch (error) {
-//         console.error('Error fetching users:', error);
-//         res.status(500).json({ error: 'Internal server error' });
-//     }
-// });
-
-
-// router.get('/dashboard',(req,res)=>{
-//     if(!req.session.user) {
-//         return res.redirect('/login')
-//     }
-//     User.findByPk(req.session.user.id, {
-//         include: [Blog, Comment]
-//     }).then(userData => {
-//         const hbsData = userData.get({plain:true})
-//         hbsData.loggedIn = req.session.user?true:false
-//         res.render("dashboard", hbsData)
-//     })
-// })
-
 
 // Login route
 router.get('/login', (req, res) => {
